@@ -68,6 +68,8 @@ plt.show()
 To understand how skills for Data Analysts evolved in 2023, I focused specifically on job postings for that role and grouped the listed skills by the month they were posted. This gave me a month-by-month view of the top 5 skills, helping me see which ones gained or lost popularity throughout the year.
 
 
+for more detalied steps :  [3-Skills_trend.ipynb](3-Skills_trend.ipynb)
+
 
 ## data visualization  
 
@@ -92,6 +94,41 @@ for i in range(5):
 plt.show()
 ```
 ![alt text](image-1.png)
+
+
+- SQL remains the most consistently demanded skill throughout the year, although it shows a gradual decrease in demand.
+
+
+
+
+## 3- 3. How much compnies pay for the data roles in US ? 
+
+note : the dataset provide salaries only for the US other countries is nan 
+
+
+To figure out which data roles and skills offer the highest pay, I focused on job postings based in the United States and analyzed their median salaries. Before diving into specific skills, I first looked at the salary distributions for common data roles like Data Scientist, Data Engineer, and Data Analyst to get a clear picture of which positions tend to pay the most.
+
+
+for more detalied steps :  [4-Salaries.ipynb](4-Salaries.ipynb)
+
+
+```python
+
+sns.boxplot(data=df_top6, x='salary_year_avg', y='job_title_short', order= job_order)
+sns.set_theme(style='ticks')
+sns.despine()
+
+plt.title('Salary Distributions of Data Jobs in the US')
+plt.xlabel('Yearly Salary (USD)')
+plt.ylabel('')
+plt.xlim(0, 600000) 
+ticks_x = plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
+plt.gca().xaxis.set_major_formatter(ticks_x)
+plt.show()
+```
+![alt text](image-2.png)
+
+
 
 
 
